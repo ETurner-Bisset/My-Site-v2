@@ -2,6 +2,7 @@
 .main__os {
   background-color: #a9cdeb;
   color: #081e1f;
+  margin-bottom: 1rem;
 }
 @supports (display: grid) {
   .main__os {
@@ -45,14 +46,15 @@
   .main__os .main__os-gallery {
     grid-area: gallery;
     width: 100vw;
-    max-width: 37rem;
+    height: 100%;
+    max-width: 30rem;
     overflow: hidden;
     position: relative;
     border-bottom: 2px solid #081e1f;
     border-top: 2px solid #081e1f;
     margin-bottom: 1rem;
   }
-  @media (min-width: 37rem) {
+  @media (min-width: 30rem) {
     .main__os .main__os-gallery {
       border: 2px solid #081e1f;
       border-radius: 0.3rem;
