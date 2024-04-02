@@ -1,0 +1,102 @@
+.main-ed {
+  width: 100%;
+  @supports (display: grid) {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 5rem repeat(3, auto);
+    grid-template-areas: 'title' 'high' 'college' 'uni';
+    justify-items: center;
+    @media (min-width: 60rem) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 5rem repeat(2, auto);
+      grid-template-areas: 'title title' 'high college' 'uni uni';
+      .main-ed__title {
+        grid-area: title;
+      }
+      .high {
+        grid-area: high;
+      }
+      .college {
+        grid-area: college;
+      }
+      .uni {
+        grid-area: uni;
+      }
+    }
+    .main-ed__card {
+      @include display-flex();
+      flex-direction: column;
+      align-items: center;
+      width: 100vw;
+      max-width: 23rem;
+      background-color: map-get($colors, text-pri);
+      border-bottom: 2px solid map-get($colors, text-sec);
+      margin-bottom: 1rem;
+      @media (min-width: 23rem) {
+        border-radius: $border-radius;
+        @include borderLgScreen();
+      }
+      .main-ed__card-title {
+        @include defaultLink();
+      }
+      .main-ed__card-img-container {
+        width: 100%;
+        max-height: 12rem;
+        min-height: 12rem;
+        @include borderSmScreen();
+        position: relative;
+        a {
+          @include hoverFunc(color, text-sec);
+          @include hoverFunc(background-color, text-pri);
+          background-color: map-get($colors, text-sec);
+          font-weight: bold;
+          z-index: 105;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 0.2rem 0.4rem;
+          width: 100%;
+          text-align: center;
+          &:hover {
+            border-bottom: 2px solid map-get($colors, text-sec);
+          }
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .main-ed__card-list {
+        width: 85%;
+        list-style: square;
+        margin: 1rem 0;
+        font-size: map-get($font-sizes, text);
+        h5 {
+          margin: 0.3rem 0;
+        }
+      }
+    }
+    .main-ed__title {
+      grid-area: title;
+      align-self: center;
+      @include textShadow();
+    }
+    .high {
+      grid-area: high;
+    }
+    .college {
+      grid-area: college;
+      .main-ed__card-img-container img {
+        object-position: 0 1rem;
+      }
+    }
+    .uni {
+      grid-area: uni;
+      .main-ed__card-list {
+        width: 85%;
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.main-ex {
+  width: 100vw;
+  height: 100%;
+  @include display-flex();
+  flex-direction: column;
+  align-items: center;
+  font-size: map-get($font-sizes, text);
+  .main-ex__title {
+    margin: 1.5rem 0;
+    @include textShadow();
+  }
+  .main-ex__text-container {
+    width: 100%;
+    max-width: 40rem;
+    padding: 0.5rem;
+    background-color: map-get($colors, main);
+    @include borderSmScreen();
+    @media (min-width: 40rem) {
+      @include borderLgScreen();
+    }
+    .main-ex__text-container-text a {
+      @include defaultLink();
+      @include hoverFunc(color, text-sec);
+    }
+    .main-ex__text-container-list {
+      margin: 0.3rem 0;
+      width: 85%;
+      list-style: none;
+      .main-ex__text-container-item {
+        margin: 0.2rem 0;
+        a {
+          @include defaultLink();
+          @include hoverFunc(color, text-sec);
+        }
+      }
+    }
+  }
+  .main-ex__personal-container {
+    width: 100%;
+    @supports (display: grid) {
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      grid-auto-flow: row;
+      grid-template-areas: 'title' 'project';
+      justify-items: center;
+      @media (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 'title title';
+        .main-ex__personal-container-title {
+          grid-area: title;
+        }
+      }
+      @media (min-width: 60rem) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 'title title title';
+        .main-ex__personal-container-title {
+          grid-area: title;
+        }
+      }
+      .main-ex__personal-container-title {
+        grid-area: title;
+        margin: 1rem 0;
+      }
+      .project-card {
+        width: 100vw;
+        max-width: 18rem;
+        min-height: 8rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        @include borderLgScreen();
+        @include display-flex();
+        flex-direction: column;
+        align-items: center;
+        .project-card__title {
+          font-size: map-get($font-sizes, text);
+          a {
+            color: map-get($colors, text-sec);
+            @include hoverFunc(color, text-pri);
+          }
+        }
+        .project-card__text {
+          margin: 1rem auto 0;
+          a {
+            @include hoverFunc(color, text-sec);
+          }
+        }
+      }
+      .to-do-list {
+        background: linear-gradient(90deg, #edf1d6, #9dc08b, #609966);
+      }
+      .note-it {
+        background: linear-gradient(90deg, #f5543d, #f5753d, #f5b13d);
+      }
+      .meals-ideas {
+        background-color: #e6ceca;
+        .project-card__title a {
+          color: #f02a13;
+        }
+      }
+    }
+  }
+  .main-ex__professional-container {
+    margin-bottom: 1rem;
+    .main-ex__professional-container-title {
+      margin-bottom: 1rem;
+    }
+  }
+}

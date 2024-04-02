@@ -1,0 +1,23 @@
+.main-error {
+  width: 100%;
+  max-width: 35rem;
+  height: 100%;
+  @include display-flex();
+  flex-direction: column;
+  align-items: center;
+  .main-error__title {
+    margin: 1rem 0;
+    padding: 0 0.5rem;
+  }
+  .main-error__button {
+    background-color: map-get($colors, main);
+    color: map-get($colors, text-pri);
+    padding: 0.3rem;
+    @include borderLgScreen();
+    @include hoverFunc(background-color, text-pri);
+    @include hoverFunc(color, main);
+    i {
+      font-size: map-get($font-sizes, btn-text);
+    }
+  }
+}

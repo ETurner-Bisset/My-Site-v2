@@ -1,0 +1,116 @@
+.main__os {
+  background-color: map-get($colors, background);
+  color: map-get($colors, text-sec);
+  @supports (display: grid) {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 5rem auto auto 17rem;
+    grid-template-areas: 'title' 'img' 'text' 'gallery';
+    justify-items: center;
+    .main__os-title {
+      grid-area: title;
+      align-self: center;
+      @include textShadow();
+    }
+    .main__os-img-container {
+      grid-area: img;
+      width: 100vw;
+      max-width: 30rem;
+      @include borderSmScreen();
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      @media (min-width: 30rem) {
+        @include borderLgScreen();
+        justify-self: center;
+      }
+    }
+    .main__os-text {
+      grid-area: text;
+      width: 100vw;
+      max-width: 37rem;
+      padding: 0 0.8rem;
+      margin: 1rem 0;
+      font-size: map-get($font-sizes, text);
+    }
+    .main__os-gallery {
+      grid-area: gallery;
+      width: 100vw;
+      overflow: hidden;
+      position: relative;
+      @include borderSmScreen();
+      margin-bottom: 1rem;
+      .main__os-gallery-slide {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        transform: translateX(0);
+        transition: transform 0.5s ease-in;
+        img {
+          width: 100%;
+          object-position: 0 -0.5rem;
+        }
+        &:nth-of-type(4) img {
+          object-position: 0 -1rem;
+        }
+        &:nth-of-type(6) img {
+          object-position: 0 -3.5rem;
+        }
+      }
+      .buttons-container {
+        position: absolute;
+        @include display-flex();
+        justify-content: space-evenly;
+        align-items: center;
+        bottom: 0;
+        width: 100%;
+        button {
+          font-size: map-get($font-sizes, text);
+          color: map-get($colors, text-pri);
+          background-color: map-get($colors, text-sec);
+          border: none;
+          border-radius: $border-radius;
+          padding: 0.3rem;
+          cursor: pointer;
+          @include hoverFunc(background-color, text-pri);
+          @include hoverFunc(color, text-sec);
+          &:nth-of-type(1) {
+            display: none;
+          }
+        }
+      }
+    }
+    @media (min-width: 60rem) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 5rem auto 20rem;
+      grid-template-areas: 'title title' 'img txt' 'gallery gallery';
+      justify-items: center;
+      width: 100%;
+      row-gap: 1rem;
+      margin-bottom: 1rem;
+      .main__os-title {
+        grid-area: title;
+      }
+      .main__os-img-container {
+        grid-area: img;
+        max-width: 30rem;
+      }
+      .main__os-text {
+        grid-area: txt;
+        padding: 0.5rem;
+        max-width: 30rem;
+      }
+      .main__os-gallery {
+        grid-area: gallery;
+        max-width: 30rem;
+        height: 100%;
+
+        @include borderLgScreen();
+        .main__os-gallery-slide:nth-of-type(6) img {
+          object-position: 0 -5rem;
+        }
+      }
+    }
+  }
+}
