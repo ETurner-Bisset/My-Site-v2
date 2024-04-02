@@ -37,10 +37,14 @@
     .main__os-gallery {
       grid-area: gallery;
       width: 100vw;
+      max-width: 37rem;
       overflow: hidden;
       position: relative;
       @include borderSmScreen();
       margin-bottom: 1rem;
+      @media (min-width: 37rem) {
+        @include borderLgScreen();
+      }
       .main__os-gallery-slide {
         width: 100%;
         position: absolute;

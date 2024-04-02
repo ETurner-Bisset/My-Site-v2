@@ -45,11 +45,18 @@
   .main__os .main__os-gallery {
     grid-area: gallery;
     width: 100vw;
+    max-width: 37rem;
     overflow: hidden;
     position: relative;
     border-bottom: 2px solid #081e1f;
     border-top: 2px solid #081e1f;
     margin-bottom: 1rem;
+  }
+  @media (min-width: 37rem) {
+    .main__os .main__os-gallery {
+      border: 2px solid #081e1f;
+      border-radius: 0.3rem;
+    }
   }
   .main__os .main__os-gallery .main__os-gallery-slide {
     width: 100%;
