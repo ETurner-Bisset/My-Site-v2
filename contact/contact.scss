@@ -13,6 +13,9 @@
   .main-contact__text {
     padding: 0.5rem;
     max-width: 32rem;
+    a {
+      @include hoverFunc(color, main);
+    }
   }
   .main-contact__form {
     width: 90%;

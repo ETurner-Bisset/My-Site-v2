@@ -1,10 +1,11 @@
 .main__os {
   background-color: map-get($colors, background);
   color: map-get($colors, text-sec);
+  margin-bottom: 1rem;
   @supports (display: grid) {
     height: 100%;
     display: grid;
-    grid-template-rows: 5rem auto auto 17rem;
+    grid-template-rows: 5rem auto auto auto;
     grid-template-areas: 'title' 'img' 'text' 'gallery';
     justify-items: center;
     .main__os-title {
@@ -37,29 +38,45 @@
     .main__os-gallery {
       grid-area: gallery;
       width: 100vw;
-      max-width: 37rem;
+      min-height: 17rem;
+      // max-height: 23rem;
+      max-width: 30rem;
       overflow: hidden;
       position: relative;
       @include borderSmScreen();
       margin-bottom: 1rem;
-      @media (min-width: 37rem) {
+
+      @media (min-width: 30rem) {
         @include borderLgScreen();
       }
       .main__os-gallery-slide {
         width: 100%;
+        height: 100%;
         position: absolute;
         left: 0;
         transform: translateX(0);
         transition: transform 0.5s ease-in;
         img {
           width: 100%;
-          object-position: 0 -0.5rem;
+          height: 100%;
+          object-fit: cover;
         }
         &:nth-of-type(4) img {
           object-position: 0 -1rem;
         }
         &:nth-of-type(6) img {
           object-position: 0 -3.5rem;
+        }
+        @media (min-width: 23rem) {
+          &:nth-of-type(1) img {
+            object-position: 0 -1rem;
+          }
+          &:nth-of-type(5) img {
+            object-position: 0 -1rem;
+          }
+          &:nth-of-type(6) img {
+            object-position: 0 -5rem;
+          }
         }
       }
       .buttons-container {
@@ -109,11 +126,7 @@
         grid-area: gallery;
         max-width: 30rem;
         height: 100%;
-
         @include borderLgScreen();
-        .main__os-gallery-slide:nth-of-type(6) img {
-          object-position: 0 -5rem;
-        }
       }
     }
   }
