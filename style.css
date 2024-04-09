@@ -407,6 +407,9 @@
   .main-ex .main-ex__personal-container .meals-ideas .project-card__title a {
     color: #f02a13;
   }
+  .main-ex .main-ex__personal-container .weather {
+    background-color: #ccb79c;
+  }
 }
 .main-ex .main-ex__professional-container {
   margin-bottom: 1rem;
