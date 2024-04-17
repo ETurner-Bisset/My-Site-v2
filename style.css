@@ -410,6 +410,9 @@
   .main-ex .main-ex__personal-container .weather {
     background-color: #ccb79c;
   }
+  .main-ex .main-ex__personal-container .hangman {
+    background-color: #e0b1ef;
+  }
 }
 .main-ex .main-ex__professional-container {
   margin-bottom: 1rem;
